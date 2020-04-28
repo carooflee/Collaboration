@@ -1,0 +1,23 @@
+body{
+    background: #2c3e50;
+    color: #fff;
+    padding:20px;
+    letter-spacing: 5px;
+  }
+
+.form-control {
+    column-width: 50px;
+}
+
+  .tile{
+    height:200px;
+    width:200px;
+    float:left;
+    margin:5px 5px 5px 5px;
+    padding:2px;
+    font-size: 48px;
+    line-height: 45px;
+    letter-spacing: 5px;
+    color: #ecf0f1;
+  }
+
