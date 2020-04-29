@@ -3,6 +3,7 @@ body{
     color: #fff;
     padding:20px;
     letter-spacing: 5px;
+    float: left;
   }
 
 .form-control {
@@ -21,3 +22,29 @@ body{
     color: #ecf0f1;
   }
 
+  /* div {
+    display: inline-block;
+    float: left;
+} */
+
+.tags {
+  display: table;
+}
+.col {
+  display: table-row;
+}
+.col label {
+  display: table-cell;
+}
+
+  input {
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    background-color: antiquewhite;
+    border-radius: 16px 0px 16px 0px
+    }
+    
+    input:focus {
+      background-color: white;
+    }
