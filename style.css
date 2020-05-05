@@ -1,28 +1,246 @@
-body{
-    background: teal;
-    color: white;
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50ox 15 px 15 px;
 }
 
+body{
+  background: cadetblue;
+  color: #fff;
+  padding:20px;
+  letter-spacing: 5px;
+  float: left;
+}
 
-#foodType {
+.form-control {
+  column-width: 50px;
+}
+
+.tile{
+  height:200px;
+  width:200px;
+  float:left;
+  margin:5px 5px 5px 5px;
+  padding:2px;
+  font-size: 48px;
+  line-height: 45px;
+  letter-spacing: 5px;
+  color: #ecf0f1;
+}
+
+section {
+  display: inline-block;
+  float: left;
+}  
+
+.tags {
+display: table;
+}
+.col {
+display: table-row;
+}
+.col label {
+display: table-cell;
+}
+
+input {
   padding: 10px 15px;
   border: none;
   outline: none;
   background-color: antiquewhite;
-  border-radius: 16px 0px 16px 0px;
-  color: black;
+  border-radius: 16px 0px 16px 0px
+  }
+  
+  input:focus {
+    background-color: white;
+  }
+
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #fff;
+    opacity: 1; /* Firefox */
+  }
+
+.form-group {
+  color:
 }
 
-.outercard-custom {
-  margin: 10px;
-  width: 100px;
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Float four columns side by side */
+  .column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+  }
+  
+  /* Remove extra left and right margins, due to padding */
+  .row {margin: 0 -5px;}
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Style the counter cards */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: coral;
+  }
+
+
+main {
+  flex: 1 1 100%;
+  padding: 25px 25px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.innercard-custom {
-  font-family: Arial, Helvetica, sans-serif;
-  color: white;
+  .pagina{
+    width:auto;
+    height:auto;
+    margin: 30px 0 0;
+  }
 
+  .linha{
+    width:auto;
+    padding:5px;
+    height:auto;
+    display:table;
+  }
+  .tile{
+    height:200px;
+    width:200px;
+    float:left;
+    margin:5px 5px 5px 5px;
+    padding:2px;
+    font-size: 48px;
+    line-height: 45px;
+    letter-spacing: 5px;
+    color: #ecf0f1;
+  }
 
-}
+  .longTile{
+    width:410px;
+  }
+  .temperature{
+    background:#16a085;
+    text-indent: 5px;
+    text-align:right;
+  }
 
+  .purple{
+    background:#8e44ad;
+    font-size: 36px;
+  }
 
+  .blue{
+    background:#3498db;
+    font-size: 24px;
+  }
+
+  h1{
+    text-indent: 10px;
+  }
+
+  .pressure{
+    background:#16a085;
+    font-size: 200px;
+    text-align:center;
+  }
+
+  .presTrend{
+    position: relative;
+    /*This needs to be dynamic based on the cases of +(28%), -(33%), and 0(40%).*/
+    top: 33%;
+  }
+
+  .description{
+    text-align:left;
+    font-size: .5em;
+    line-height: 85%;
+    padding-top:5px;
+  }
+
+  .temp{
+    text-align:left;
+    font-size: 1em;
+  }
+
+  .tempNum{
+    font-size: 1.9em;
+    letter-spacing: -3px;
+    padding-top: 20px;
+  }
+
+  .vis{
+    text-align:left;
+    font-size: 1em;
+    line-height: 85%;
+  }
+
+  .visNum{
+    padding-top: 20px;
+    padding-bottom:7px;
+    font-size: 2.5em;
+    letter-spacing: -3px;
+  }
+
+  .humidPercent{
+    padding-bottom:7px;
+    font-size: 2.4em;
+    padding-top: 20px;
+    letter-spacing: -3px;
+  }
+
+  .time{
+    background:#16a085;
+  }
+
+  .rise,.set,.day{
+    font-size: 35px;
+    padding: 20px;
+  }
+
+  .rise{
+    text-align: left;
+  }
+
+  .set{
+    float: right;
+  }
+
+  .pic{
+    height: 50px;
+    width: auto;
+  }
+
+  .day{
+    text-align:center;
+  }
+
+  .dayLook{
+    font-size: .5em;
+    text-align:center;
+  }

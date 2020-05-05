@@ -1,27 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Compiled and minified JavaScript, Materialize-->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<link rel="stylesheet" href="style.css" type="text/css">
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <!--Bootstrap css-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+   <!-- Compiled and minified JavaScript, Materialize-->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+           
+   <link rel="stylesheet" href="style.css" type="text/css">
+   <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+ 
 </head>
-
 <body>
-
-    <div class="container">
-
-        <div class="row" id="restaurant-row">
-
+<div class="container-fluid">
+    <header class="row-fluid">
+        Weather Search
+    </header>
+    <form>
         </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="city" placeholder="City...">
+            <div class="form-group">
+        <div class="form-group">
+            <input type="text" class="form-control" id="state" placeholder="State...">
+                </div>
+        </div>
+        <button class="btn searchEl" id="searchBtn">Search</button>
+    </form>
+</div>
 
+
+<main>
+<section class="location"> 
+<div class="city"></div>
+<div class="state"></div>
+<div id="icon"><img id="wicon" src="" alt=""></div>
+    <div class="date">04-29-2020</div>
+</section>    
+    <div class="current"></div>
+    <div class="temp"><span>*F</span></div>
+    <div class="humidity"></div>
+    <div class="wind-speed"></div>
+
+
+
+</main>
+
+
+</div>
+
+<div class="container-fluid">
+    <!-- <div class="pagina">
+      <div class="linha"> -->
+        <!-- <h1 class="local_heading"></h1>
+        <div class="tile temperature"><span class="temp"><p id="temp"></p></span></div>
+        <div class="tile longTile blue"><span class="wind"><p id="wind-speed"></span></div>
+        <div class="tile  purple"><span class="humidity"><P id="humidity"></P></span></div>
+        <div class="tile pressure"><span class="pressure"><P id="pressure"></P></span></div>
+        <div class="tile blue"><span class="dew"><P id="dew"></P></span></div>
+        <div class="tile  purple"><span class="visibility"><P id="visibility"></P></span></div>
+        <div class="tile longTile time"><span class="rise"></span><br><span class="set"></span><br><span class="day"></span></div>
+        <div class="tile purple"><span class="UV"></span></div> -->
+    <div class="row">
+
+    
+    <div class="column">    
+    <div class="card">
+        <h4>Day One</h4>
+        <div><span class="dayOne"></span></div>
+        <div><span class="temperOne"></span></div>
+        <div><span class="iconOne"></span></div>
+        <div><span class="humidityOne"></span></div>
+        <div><span class="windOne"></span></div>
+    </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
-    integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-    <script src="script.js" type="text/javascript"></script>
+    <div class="column">    
+    <div class="card">
+        <h4>Day Two</h4>
+        <div><span class="dayTwo"></span></div>
+        <div><span class="temperTwo"></span></div>
+        <div><span class="iconTwo"></span></div>
+        <div><span class="humidityTwo"></span></div>
+        <div><span class="windTwo"></span></div>
+    </div>
+</div>
+
+    <div class="column">    
+    <div class="card">
+        <h4>Day Three</h4>
+        <div><span class="dayThree"></span></div>
+        <div><span class="temperThree"></span></div>
+        <div><span class="iconThree"></span></div>
+        <div><span class="humidityThree"></span></div>
+        <div><span class="windThree"></span></div>
+    </div>
+</div>
+
+    <div class="column">    
+    <div class="card">
+        <h4>Day Four</h4>
+        <div><span class="dayFour"></span></div>
+        <div><span class="temperFour"></span></div>
+        <div><span class="iconFour"></span></div>
+        <div><span class="humidityFour"></span></div>
+        <div><span class="windFour"></span></div>
+    </div>
+</div>
+
+    <div class="column">    
+    <div class="card">
+        <h4>Day Five</h4>
+        <div><span class="dayFive"></span></div>
+        <div><span class="temperFive"></span></div>
+        <div><span class="iconFive"></span></div>
+        <div><span class="humidityFive"></span></div>
+        <div><span class="windFive"></span></div>
+    </div>
+</div>
+
+    </div>
+  </div>
+
+
+
+
+
+  
+
+
+ <script src="script.js"></script>
+
+
 
 </body>
-
 </html>
