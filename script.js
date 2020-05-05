@@ -34,6 +34,7 @@ $(document).ready(function () {
         let cuisineValue = $("#foodType").val().trim();
         // $(".card").fadeIn();
         searchRestaurant(cuisineValue);
+        displayFoodOptions(cuisineValue);
     });
 
    
@@ -71,17 +72,11 @@ $(document).ready(function () {
 
                 let priceCompP = $("<p>");
                 priceCompP.text("Price Comparison: " + response.restaurants[i].restaurant.price_range);
-                $(".card-" + [i]).append(priceCompP);
-
-                
-                
-
-
+                $(".card-" + [i]).append(priceCompP)
                 
             }
-
-            let foodChoice = "thai"//search.val();
-            //let ingredients = ingredients.val();
+});
+            function displayFoodOptions(foodChoice){           
             let i = 0;
             let settings = {
                 "async": true,
@@ -120,13 +115,7 @@ $(document).ready(function () {
                     })
                 })
             });
-
+            }
         
         });
     }
-
-    
-});
-
-
-
