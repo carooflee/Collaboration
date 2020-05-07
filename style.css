@@ -81,6 +81,10 @@
           margin-bottom: 20px;
           height: auto;
         }
+        .card {
+          min-width: fit-content;
+        }
+      }
 /* 
         @media screen and (max-width: 1200px) {
           .column {
@@ -92,7 +96,7 @@
           } */
 
 
-      }
+      
       /* Style the counter cards */
       .card {
         /* display: flex;
@@ -105,6 +109,9 @@
         margin-left: auto;
         margin-right: auto;
         max-width: 325px;
+        max-height: 250px;
+        min-height: 250px;
+        min-width: 325px;
         /* max-height: 300px;
         min-height: 300px; */
         height: 100%;
@@ -117,32 +124,11 @@
         object-fit: cover;
       }
 
-  button {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    padding: 16px 16px 16px 16px;
-    margin-block-start: 20px;
-    text-align: center;
-    font
-    /* text-overflow: clip; */
-    margin-left: auto;
-    margin-right: auto;
-    min-width: 325px;
-    color: white;
-    /* max-height: 300px; */
-    /* min-height: 200px; */
-    height: 100%;
-    /* max-height: 200px; */
-    word-wrap: break-word;
-    /* font-size: 15.5vw; */
-    float: left;
-    background-color: lightcoral;
-    /* overflow: hidden; */
-    object-fit: cover;
-  }    
-
-li {
-  color: white;
-}
+      
+/* .recrow {
+  min-height: 150px;
+  max-height: 150px;
+} */
 
 
   p {
@@ -150,50 +136,23 @@ li {
     text-align: center;
   }
 
+.header {
+  text-align: center;
+  color: antiquewhite;
+  font-family: Courier;
+  font-size: 2vw;
+  text-shadow: 2px 2px black;
+  
+}
+
+
   h3 {
   font-size: 1vw;
   text-align: center;
   color: white;
 }
-  /* 
-      .card::nth-of-type(odd) {
-        background-color: antiquewhite;}  */
-  /* 
-        .grid {
-          display: grid;
-          grid-template-columns: repeat( 4, 1fr );
-        
-          .item {
-            grid-column: span 2;
-          }
-          
-          .item:nth-last-child(1):nth-child(odd) {
-            grid-column: 2 / span 2;
-          }
-
-          .grid-on-left {
-            @include grid-center-last( 2 );
-          }
-          
-          .grid-on-right {
-            @include grid-center-last( 3 );
-          }
-          
-          @mixin grid-center-last( $columns ) {
-            $total_columns: $columns * 2;
-            $span: $total_columns / $columns;
-            $offset: $columns - 1;
-            $nth-child: if( $columns % 2 == 0, 'odd', 'even' );
-          
-            display: grid;
-            grid-template-columns: repeat( $total_columns, 1fr );
-          
-            & > * {
-              grid-column: span $span;
-          
-              &:nth-last-child(#{$offset}):nth-child(#{$nth-child}) {
-                grid-column: $span / span $span;
-              }
-            }
-          }
-        *
+  
+a {
+  color: white;
+  text-shadow: 1px 1px black;
+}
