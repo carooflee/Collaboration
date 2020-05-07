@@ -46,7 +46,7 @@ $(document).ready(function () {
 
         let cardoverDiv = $("<div>");
         cardoverDiv.addClass("card-content white-text pop-content");
-        cardoverDiv.text("Hungry?  We're here to help!  Since this is your first time visiting our site, here is the one simple feature we would like to tell you about.  Simply type in what you are craving(i.e. italian), click search and let us do the rest!")
+        cardoverDiv.text("Hungry?  We're here to help! Since this is your first time visiting our site, simply type in what you are craving (i.e. Italian), click search and let us do the rest!")
         $(".card-over-1").append(cardoverDiv);
         
         let cardAction = $("<div>");
@@ -60,23 +60,23 @@ $(document).ready(function () {
 
     }
 
-localStorage.setItem("restaurant", 0)
-localStorage.setItem("recipe", 0)
-let addRestaurant = localStorage.getItem("restaurant")
-let addRecipe = localStorage.getItem("recipe")
+    $("#popup-start").on("click", function () {
+        $(".overlay-1").hide();
+        localStorage.setItem("restaurant", 0)
+        localStorage.setItem("recipe", 0)
+    });
+    // Metrics:  Adds to either Restaurant Count or Recipe Count
     $("#popup-1").on("click", function () {
         $(".overlay-1").hide();
-
-        localStorage.setItem("restaurant", +1);
+        let addRestaurant = parseInt(localStorage.getItem("restaurant"));
+        let addedRes = addRestaurant + 1;
+        localStorage.setItem("restaurant", addedRes);
     });
     $("#popup-2").on("click", function () {
         $(".overlay-1").hide();
-
-        localStorage.setItem("recipe", +1);
-    });
-    $("#popup-start").on("click", function () {
-        $(".overlay-1").hide();
-
+        let addRecipe = parseInt(localStorage.getItem("recipe"));
+        let addedRec = addRecipe + 1;
+        localStorage.setItem("recipe", addedRec);
     });
 
 
@@ -185,35 +185,40 @@ let addRecipe = localStorage.getItem("recipe")
                     $(".resrow-" + [i]).append(priceCompP);
                 };
 
-                for(let i = 0; i < 4; i++) {
+                for (let i = 0; i < 4; i++) {
                     // Card
-		let food = response2.results
+                    let food = response2.results;
                     let colm2 = $("<div>");
                     colm2.addClass("card card-custom recrow-" + [i]);
                     $("#recRow").append(colm2);
 
                     let restDiv = $("<h3>");
-                    restDiv.text(food.name)
+                    restDiv.text(response2.results[i].name)
                     $(".recrow-" + [i]).append(restDiv);
 
-                    let addP = $("<button>");
+                    let addP = $("<a>");
                     addP.text("Click Here for Recipe!")
+                    //  $(addP).attr("href", "recipes.html");
                     $(".recrow-" + [i]).append(addP);
-                     addP.on("click", function () {
-					$("body").empty();
-					let foodDiv = $("<div>").addClass("card");
-					let foodImage = $("<img>").attr("src", food.thumbnail_url).width("150px").height("150px");
-					let recipeArr = food.instructions;
-					foodDiv.append(foodImage);
-					let instructionsDiv = $("<div>").addClass("container");
-					for (let i = 0; i < recipeArr.length; i++) {
-						let foodRecipe = $("<li>").text(recipeArr[i].display_text);
-						console.log(recipeArr[i].display_text);
-						instructionsDiv.append(foodRecipe);
-					}
-					foodDiv.append(instructionsDiv);
+                    addP.on("click", function () {
+                        $("body").empty();
+                        let foodDiv = $("<div>").addClass("card");
+                        let foodImage = $("<img>").attr("src", food[i].thumbnail_url).width("150px").height("150px");
+                        let recipeArr = food[i].instructions;
+                        foodDiv.append(foodImage);
+                        let instructionsDiv = $("<div>").addClass("container");
+                        for (let i = 0; i < recipeArr.length; i++) {
+                            let foodRecipe = $("<li>").text(recipeArr[i].display_text);
+                            console.log(recipeArr[i].display_text);
+                            instructionsDiv.append(foodRecipe);
+                        }
+                        foodDiv.append(instructionsDiv);
 					$("body").append(foodDiv);
+
+                })};
             });
-        };
+        });
     };
+
+
 });
