@@ -185,21 +185,35 @@ let addRecipe = localStorage.getItem("recipe")
                     $(".resrow-" + [i]).append(priceCompP);
                 };
 
-                for (let i = 0; i < 4; i++) {
+                let foods = response2.results;
+			    let filteredFoods = foods.slice(0, 5);
+			    $.each(filteredFoods, function (index, food) {
                     // Card
                     let colm2 = $("<div>");
                     colm2.addClass("card card-custom recrow-" + [i]);
                     $("#recRow").append(colm2);
 
                     let restDiv = $("<h3>");
-                    restDiv.text(response2.results[i].name)
+                    restDiv.text(food.name)
                     $(".recrow-" + [i]).append(restDiv);
 
-                    let addP = $("<a>");
+                    let addP = $("<button>");
                     addP.text("Click Here for Recipe!")
-                     $(addP).attr("href", "recipes.html");
                     $(".recrow-" + [i]).append(addP);
-
+                     addP.on("click", function () {
+					$("body").empty();
+					let foodDiv = $("<div>").addClass("card");
+					let foodImage = $("<img>").attr("src", food.thumbnail_url).width("150px").height("150px");
+					let recipeArr = food.instructions;
+					foodDiv.append(foodImage);
+					let instructionsDiv = $("<div>").addClass("container");
+					for (let i = 0; i < recipeArr.length; i++) {
+						let foodRecipe = $("<li>").text(recipeArr[i].display_text);
+						console.log(recipeArr[i].display_text);
+						instructionsDiv.append(foodRecipe);
+					}
+					foodDiv.append(instructionsDiv);
+					$("body").append(foodDiv);
                 };
             });
         });
