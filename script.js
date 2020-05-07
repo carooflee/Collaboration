@@ -185,10 +185,9 @@ let addRecipe = localStorage.getItem("recipe")
                     $(".resrow-" + [i]).append(priceCompP);
                 };
 
-                let foods = response2.results;
-			    let filteredFoods = foods.slice(0, 5);
-			    $.each(filteredFoods, function (index, food) {
+                for(let i = 0; i < 4; i++) {
                     // Card
+		let food = response2.results
                     let colm2 = $("<div>");
                     colm2.addClass("card card-custom recrow-" + [i]);
                     $("#recRow").append(colm2);
@@ -214,10 +213,7 @@ let addRecipe = localStorage.getItem("recipe")
 					}
 					foodDiv.append(instructionsDiv);
 					$("body").append(foodDiv);
-                };
             });
-        });
+        };
     };
-
-
 });
