@@ -1,5 +1,90 @@
 $(document).ready(function () {
 
+    // Prompt user upon entry
+    let entryValue = localStorage.getItem("cuisineEntry")
+    let previousValue = localStorage.getItem("previousCuisine")
+
+    //If local storage = something show "Back Again" message:  We're happy to have you back again!  How did you enjoy your (last local storage entry)?  Did you end up cooking something up or venturing out to a restaurant?
+    if (entryValue === "true") {
+
+        let overlayDiv = $("<div>");
+        overlayDiv.addClass("col s12 m6 overlay-1");
+        $("body").append(overlayDiv);
+
+        let popDiv = $("<div>");
+        popDiv.addClass("card blue-grey darken-1 card-over-1");
+        $(".overlay-1").append(popDiv);
+
+        let cardoverDiv = $("<div>");
+        cardoverDiv.addClass("card-content white-text pop-content");
+        cardoverDiv.text("We're happy to have you back again!  How did you enjoy your " + previousValue + " food?  Did you end up cooking something up or venturing out to a restaurant?")
+        $(".card-over-1").append(cardoverDiv);
+        
+        let cardAction = $("<div>");
+        cardAction.addClass("card-action");
+        $(".card-over-1").append(cardAction);
+
+        let popA1 = $("<a>");
+        popA1.text("Cook at Home?");
+        popA1.attr("id", "popup-1");
+        $(".card-action").append(popA1);
+
+        let popA2 = $("<a>");
+        popA2.text("Eat at Restaurant?");
+        popA2.attr("id", "popup-2");
+        $(".card-action").append(popA2);
+
+    } else {
+
+        let overlayDiv = $("<div>");
+        overlayDiv.addClass("col s12 m6 overlay-1");
+        $("body").append(overlayDiv);
+
+        let popDiv = $("<div>");
+        popDiv.addClass("card blue-grey darken-1 card-over-1");
+        $(".overlay-1").append(popDiv);
+
+        let cardoverDiv = $("<div>");
+        cardoverDiv.addClass("card-content white-text pop-content");
+        cardoverDiv.text("Hungry?  We're here to help!  Since this is your first time visiting our site, here is the one simple feature we would like to tell you about.  Simply type in what you are craving(i.e. italian), click search and let us do the rest!")
+        $(".card-over-1").append(cardoverDiv);
+        
+        let cardAction = $("<div>");
+        cardAction.addClass("card-action");
+        $(".card-over-1").append(cardAction);
+
+        let popA3 = $("<a>");
+        popA3.text("Click to start!");
+        popA3.attr("id", "popup-start");
+        $(".card-action").append(popA3);
+
+    }
+
+localStorage.setItem("restaurant", 0)
+localStorage.setItem("recipe", 0)
+let addRestaurant = localStorage.getItem("restaurant")
+let addRecipe = localStorage.getItem("recipe")
+    $("#popup-1").on("click", function () {
+        $(".overlay-1").hide();
+
+        localStorage.setItem("restaurant", +1);
+    });
+    $("#popup-2").on("click", function () {
+        $(".overlay-1").hide();
+
+        localStorage.setItem("recipe", +1);
+    });
+    $("#popup-start").on("click", function () {
+        $(".overlay-1").hide();
+
+    });
+
+
+
+    // localStorage.getItem("previousCuisine")
+    // Else local storage = 0 show "First Time" message:  Hungry?  So are we!  Hungry to get you food, that is.  Since this is your first time visiting our site, here is the one simple feature we would like to tell you about.  Simply type in what you are craving(i.e. italian), click search and let us do the rest!
+
+    
     // Input Group
     let headerDiv = $("<div>");
     let formGroupDiv = $("<div>");
@@ -26,17 +111,24 @@ $(document).ready(function () {
 
     //Click fades Input Group out
     $("#search-button").on("click", function () {
-        $(".searchDiv").fadeOut();
-        $("#foodType").fadeOut();
+        $(".searchDiv").hide();
+
     });
 
     // Same click fades Card contents in
     $("#search-button").on("click", function () {
         let cuisineValue = $("#foodType").val().trim();
-
+        localStorage.setItem("cuisineEntry", true);
+        localStorage.setItem("previousCuisine", cuisineValue)
         searchRestaurant(cuisineValue);
     });
 
+    // Segue between search and results(This helps with aesthetic due to timing delay with two AJAX calls)
+    $(".hungry").text("Are you ready to eat?").hide();
+
+    $("#search-button").on("click", function () {
+        $(".hungry").fadeIn("slow");
+    });
 
     function searchRestaurant(cuisine) {
 
@@ -58,7 +150,9 @@ $(document).ready(function () {
         // AJAX call to first call Recipes JSON data
         $.ajax(settings).then(function (response2) {
 
-        //AJAX call to then call data gathered by Recipe AJAX call to async full call of all data
+
+            $(".hungry").fadeOut();
+            //AJAX call to then call data gathered by Recipe AJAX call to async full call of all data
             $.ajax({
                 url: queryURL,
                 method: "GET"
@@ -71,7 +165,7 @@ $(document).ready(function () {
                 for (let i = 0; i < 4; i++) {
                     // Card
                     let colm = $("<div>");
-                    colm.addClass("card resrow-" + [i]);
+                    colm.addClass("card card-custom resrow-" + [i]);
                     $("#restRow").append(colm);
 
                     let restDiv = $("<h3>");
@@ -94,7 +188,7 @@ $(document).ready(function () {
                 for (let i = 0; i < 4; i++) {
                     // Card
                     let colm2 = $("<div>");
-                    colm2.addClass("card recrow-" + [i]);
+                    colm2.addClass("card card-custom recrow-" + [i]);
                     $("#recRow").append(colm2);
 
                     let restDiv = $("<h3>");
@@ -110,4 +204,6 @@ $(document).ready(function () {
             });
         });
     };
+
+
 });
