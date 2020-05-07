@@ -1,4 +1,16 @@
-  body{
+.overlay-1 {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  opacity: 0.9;
+}
+ 
+ body{
       background: teal;
       color: #fff;
       padding:20px;
@@ -45,7 +57,7 @@
       padding: 10px 15px;
       border: none;
       outline: none;
-      width: 300px;
+      max-width: 650px;
       border-radius: 16px 0px 16px 0px
       }
     
@@ -124,6 +136,28 @@
         object-fit: cover;
       }
 
+      .card-over-1 {
+        /* display: flex;
+        justify-content: space-between; */
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        padding: 16px 16px 16px 16px;
+        margin-block-start: 20px;
+        text-align: center;
+        /* text-overflow: clip; */
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 650px;
+        /* max-height: 300px;
+        min-height: 300px; */
+        height: 100%;
+        /* max-height: 200px; */
+        /* word-wrap: break-word; */
+        /* font-size: 15.5vw; */
+        float: auto;
+        background-color: lightcoral;
+        /* overflow: hidden; */
+        object-fit: cover;
+      }
       
 /* .recrow {
   min-height: 150px;
@@ -155,4 +189,9 @@
 a {
   color: white;
   text-shadow: 1px 1px black;
+}
+
+.recipe {
+  max-height: 5000px;
+  min-height: 1700px;
 }
