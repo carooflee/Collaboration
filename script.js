@@ -4,9 +4,10 @@ $(document).ready(function () {
     let entryValue = localStorage.getItem("cuisineEntry")
     let previousValue = localStorage.getItem("previousCuisine")
 
-    //If local storage = something show "Back Again" message:  We're happy to have you back again!  How did you enjoy your (last local storage entry)?  Did you end up cooking something up or venturing out to a restaurant?
-    if (entryValue === "true") {
+    // This code checks to see if we have any previous values in local storage, so either it will run our "First Time" pop-up or "Back Again" pop-up
 
+    if (entryValue === "true") {
+        // "Back Again"
         let overlayDiv = $("<div>");
         overlayDiv.addClass("col s12 m6 overlay-1");
         $("body").append(overlayDiv);
@@ -19,7 +20,7 @@ $(document).ready(function () {
         cardoverDiv.addClass("card-content white-text pop-content");
         cardoverDiv.text("We're happy to have you back again!  How did you enjoy your " + previousValue + " food?  Did you end up cooking something up or venturing out to a restaurant?")
         $(".card-over-1").append(cardoverDiv);
-        
+
         let cardAction = $("<div>");
         cardAction.addClass("card-action");
         $(".card-over-1").append(cardAction);
@@ -35,7 +36,7 @@ $(document).ready(function () {
         $(".card-action").append(popA2);
 
     } else {
-
+        // "First Time"
         let overlayDiv = $("<div>");
         overlayDiv.addClass("col s12 m6 overlay-1");
         $("body").append(overlayDiv);
@@ -48,7 +49,7 @@ $(document).ready(function () {
         cardoverDiv.addClass("card-content white-text pop-content");
         cardoverDiv.text("Hungry?  We're here to help!  Since this is your first time visiting our site, here is the one simple feature we would like to tell you about.  Simply type in what you are craving(i.e. italian), click search and let us do the rest!")
         $(".card-over-1").append(cardoverDiv);
-        
+
         let cardAction = $("<div>");
         cardAction.addClass("card-action");
         $(".card-over-1").append(cardAction);
@@ -57,34 +58,29 @@ $(document).ready(function () {
         popA3.text("Click to start!");
         popA3.attr("id", "popup-start");
         $(".card-action").append(popA3);
-
     }
 
-localStorage.setItem("restaurant", 0)
-localStorage.setItem("recipe", 0)
-let addRestaurant = localStorage.getItem("restaurant")
-let addRecipe = localStorage.getItem("recipe")
+    // Adds 0 value to localStorage
+    $("#popup-start").on("click", function () {
+        $(".overlay-1").hide();
+        localStorage.setItem("restaurant", 0)
+        localStorage.setItem("recipe", 0)
+    });
+    // Metrics:  Adds to either Restaurant Count or Recipe Count
     $("#popup-1").on("click", function () {
         $(".overlay-1").hide();
-
-        localStorage.setItem("restaurant", +1);
+        let addRestaurant = parseInt(localStorage.getItem("restaurant"));
+        let addedRes = addRestaurant + 1;
+        localStorage.setItem("restaurant", addedRes);
     });
     $("#popup-2").on("click", function () {
         $(".overlay-1").hide();
-
-        localStorage.setItem("recipe", +1);
-    });
-    $("#popup-start").on("click", function () {
-        $(".overlay-1").hide();
-
+        let addRecipe = parseInt(localStorage.getItem("recipe"));
+        let addedRec = addRecipe + 1;
+        localStorage.setItem("recipe", addedRec);
     });
 
 
-
-    // localStorage.getItem("previousCuisine")
-    // Else local storage = 0 show "First Time" message:  Hungry?  So are we!  Hungry to get you food, that is.  Since this is your first time visiting our site, here is the one simple feature we would like to tell you about.  Simply type in what you are craving(i.e. italian), click search and let us do the rest!
-
-    
     // Input Group
     let headerDiv = $("<div>");
     let formGroupDiv = $("<div>");
@@ -150,8 +146,8 @@ let addRecipe = localStorage.getItem("recipe")
         // AJAX call to first call Recipes JSON data
         $.ajax(settings).then(function (response2) {
 
-
             $(".hungry").fadeOut();
+
             //AJAX call to then call data gathered by Recipe AJAX call to async full call of all data
             $.ajax({
                 url: queryURL,
@@ -195,14 +191,13 @@ let addRecipe = localStorage.getItem("recipe")
                     restDiv.text(response2.results[i].name)
                     $(".recrow-" + [i]).append(restDiv);
 
-                    let addP = $("<p>");
-                    addP.text("Click Here for Recipe!");
-                    $(".recrow-" + [i]).append(addP);
+                    let addP = $("<a>");
 
+                    addP.text("Click Here for Recipe!");
+                    $(addP).attr("href", "recipes.html");
+                    $(".recrow-" + [i]).append(addP);
                 };
             });
         });
     };
-
-
 });
