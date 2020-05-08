@@ -96,73 +96,47 @@
         .card {
           min-width: fit-content;
         }
+        p {
+          font-size: 5vw;
+        }
+        h3 {
+          font-size: 4vw;
+        }
       }
-/* 
-        @media screen and (max-width: 1200px) {
-          .column {
-            width: 100%;
-            display: block;
-            margin-bottom: 20px;
-            height: auto;
-          
-          } */
 
 
-      
-      /* Style the counter cards */
       .card {
-        /* display: flex;
-        justify-content: space-between; */
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         padding: 16px 16px 16px 16px;
         margin-block-start: 20px;
         text-align: center;
-        /* text-overflow: clip; */
         margin-left: auto;
         margin-right: auto;
         max-width: 325px;
         max-height: 250px;
         min-height: 250px;
         min-width: 325px;
-        /* max-height: 300px;
-        min-height: 300px; */
         height: 100%;
-        /* max-height: 200px; */
         word-wrap: break-word;
-        /* font-size: 15.5vw; */
         float: left;
         background-color: lightcoral;
-        /* overflow: hidden; */
         object-fit: cover;
       }
 
       .card-over-1 {
-        /* display: flex;
-        justify-content: space-between; */
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         padding: 16px 16px 16px 16px;
         margin-block-start: 20px;
         text-align: center;
-        /* text-overflow: clip; */
         margin-left: auto;
         margin-right: auto;
         max-width: 650px;
-        /* max-height: 300px;
-        min-height: 300px; */
         height: 100%;
-        /* max-height: 200px; */
-        /* word-wrap: break-word; */
-        /* font-size: 15.5vw; */
         float: auto;
         background-color: lightcoral;
-        /* overflow: hidden; */
+       
         object-fit: cover;
       }
-      
-/* .recrow {
-  min-height: 150px;
-  max-height: 150px;
-} */
 
 
   p {
@@ -193,5 +167,5 @@ a {
 
 .recipe {
   max-height: 5000px;
-  min-height: 1700px;
+  min-height: 500px;
 }
