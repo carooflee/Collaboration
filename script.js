@@ -202,7 +202,7 @@ $(document).ready(function () {
                     $(".recrow-" + [i]).append(addP);
                     addP.on("click", function () {
                         $("body").empty();
-                        let foodDiv = $("<div>").addClass("card");
+                        let foodDiv = $("<div>").addClass("card recipe");
                         let foodImage = $("<img>").attr("src", food[i].thumbnail_url).width("150px").height("150px");
                         let recipeArr = food[i].instructions;
                         foodDiv.append(foodImage);
