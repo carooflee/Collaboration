@@ -68,7 +68,7 @@
       /* Float four columns side by side */
       .column {
         float: left;
-        width: 12.5%;
+        width: 25%;
         padding: 10px 10px;
 
       }
@@ -78,13 +78,6 @@
         float: left;
       }
 
-
-      /* Clear floats after the columns */
-      .row:after {
-        content: "";
-        display: table;
-        clear: both;
-      }
       /* Responsive columns */
       @media screen and (max-width: 600px) {
         .column {
