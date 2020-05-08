@@ -4,10 +4,9 @@ $(document).ready(function () {
     let entryValue = localStorage.getItem("cuisineEntry")
     let previousValue = localStorage.getItem("previousCuisine")
 
-    // This code checks to see if we have any previous values in local storage, so either it will run our "First Time" pop-up or "Back Again" pop-up
-
+    //If local storage = something show "Back Again" message:  We're happy to have you back again!  How did you enjoy your (last local storage entry)?  Did you end up cooking something up or venturing out to a restaurant?
     if (entryValue === "true") {
-        // "Back Again"
+        // "Back Again" pop up
         let overlayDiv = $("<div>");
         overlayDiv.addClass("col s12 m6 overlay-1");
         $("body").append(overlayDiv);
@@ -20,23 +19,25 @@ $(document).ready(function () {
         cardoverDiv.addClass("card-content white-text pop-content");
         cardoverDiv.text("We're happy to have you back again!  How did you enjoy your " + previousValue + " food?  Did you end up cooking something up or venturing out to a restaurant?")
         $(".card-over-1").append(cardoverDiv);
-
+        
         let cardAction = $("<div>");
         cardAction.addClass("card-action");
         $(".card-over-1").append(cardAction);
 
         let popA1 = $("<a>");
-        popA1.text("Cook at Home?");
+        popA1.addClass("col s12");
+        popA1.text("I Cooked!");
         popA1.attr("id", "popup-1");
         $(".card-action").append(popA1);
 
         let popA2 = $("<a>");
-        popA2.text("Eat at Restaurant?");
+        popA2.addClass("col s12");
+        popA2.text("I Grabbed Something!");
         popA2.attr("id", "popup-2");
         $(".card-action").append(popA2);
 
     } else {
-        // "First Time"
+        // "First Time" pop up
         let overlayDiv = $("<div>");
         overlayDiv.addClass("col s12 m6 overlay-1");
         $("body").append(overlayDiv);
@@ -47,9 +48,9 @@ $(document).ready(function () {
 
         let cardoverDiv = $("<div>");
         cardoverDiv.addClass("card-content white-text pop-content");
-        cardoverDiv.text("Hungry?  We're here to help!  Since this is your first time visiting our site, here is the one simple feature we would like to tell you about.  Simply type in what you are craving(i.e. italian), click search and let us do the rest!")
+        cardoverDiv.text("Hungry?  We're here to help! Since this is your first time visiting our site, simply type in what you are craving (i.e. Italian), click search and let us do the rest!")
         $(".card-over-1").append(cardoverDiv);
-
+        
         let cardAction = $("<div>");
         cardAction.addClass("card-action");
         $(".card-over-1").append(cardAction);
@@ -58,6 +59,7 @@ $(document).ready(function () {
         popA3.text("Click to start!");
         popA3.attr("id", "popup-start");
         $(".card-action").append(popA3);
+
     }
 
     // Adds 0 value to localStorage
@@ -79,7 +81,6 @@ $(document).ready(function () {
         let addedRec = addRecipe + 1;
         localStorage.setItem("recipe", addedRec);
     });
-
 
     // Input Group
     let headerDiv = $("<div>");
@@ -146,20 +147,20 @@ $(document).ready(function () {
         // AJAX call to first call Recipes JSON data
         $.ajax(settings).then(function (response2) {
 
-            $(".hungry").fadeOut();
 
+            $(".hungry").fadeOut();
             //AJAX call to then call data gathered by Recipe AJAX call to async full call of all data
             $.ajax({
                 url: queryURL,
                 method: "GET"
             }).then(function (response) {
 
-                $("#row-1").text("Restaurants!")
-                $("#row-2").text("Recipes!")
+                $("#row-1").text("Restaurants!").addClass("header");
+                $("#row-2").text("Recipes!").addClass("header");
 
                 // for loop cycles through Card creation below
                 for (let i = 0; i < 4; i++) {
-                    // Card
+                    // Restaurant Cards
                     let colm = $("<div>");
                     colm.addClass("card card-custom resrow-" + [i]);
                     $("#restRow").append(colm);
@@ -182,7 +183,8 @@ $(document).ready(function () {
                 };
 
                 for (let i = 0; i < 4; i++) {
-                    // Card
+                    // Recipe Cards
+                    let food = response2.results;
                     let colm2 = $("<div>");
                     colm2.addClass("card card-custom recrow-" + [i]);
                     $("#recRow").append(colm2);
@@ -191,12 +193,36 @@ $(document).ready(function () {
                     restDiv.text(response2.results[i].name)
                     $(".recrow-" + [i]).append(restDiv);
 
-                    let addP = $("<a>");
-
-                    addP.text("Click Here for Recipe!");
-                    $(addP).attr("href", "recipes.html");
-                    $(".recrow-" + [i]).append(addP);
-                };
+                    let addRecA = $("<a>");
+                    addRecA.text("Click Here for Recipe!")
+                    $(".recrow-" + [i]).append(addRecA);
+                    // From A tag above on click empty body and show Recipe list from user's selection
+                    addRecA.on("click", function () {
+                        $("body").empty();
+                        let foodDiv = $("<div>").addClass("card recipe");
+                        let foodImage = $("<img>").attr("src", food[i].thumbnail_url).width("150px").height("150px");
+                        let recipeArr = food[i].instructions;
+                        foodDiv.append(foodImage);
+                        let instructionsDiv = $("<div>").addClass("container");
+                        for (let i = 0; i < recipeArr.length; i++) {
+                            let foodRecipe = $("<li>").text(recipeArr[i].display_text);
+                            instructionsDiv.append(foodRecipe);
+                        }
+                        foodDiv.append(instructionsDiv);
+                    $("body").append(foodDiv);
+                    
+                    let goBack = $("<a>");
+                    goBack.text("Go back to Results");
+                    goBack.attr("id", "goBackResults");
+                    $("body").append(goBack);
+                   
+                    $("#goBackResults").on("click", function () {
+                        $("body").empty();
+                        let cuisineValue = previousValue
+                        console.log(cuisineValue);
+                        searchRestaurant(cuisineValue)
+                    });
+                })};
             });
         });
     };

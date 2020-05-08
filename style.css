@@ -1,12 +1,4 @@
-.overlay-1 {
-  z-index: 1;
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  opacity: 0.9;
-}
-
-body {
+body{
   background: teal;
   color: #fff;
   padding:20px;
@@ -15,15 +7,48 @@ body {
   /* float: left; */
 }
 
+section {
+  display: inline-block;
+  float: left;
+}
+
+input {
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+  max-width: 650px;
+  border-radius: 16px 0px 16px 0px;
+  color: white;
+}
+
+p {
+  font-size: 1vw;
+  text-align: center;
+}
+
+a {
+  cursor: pointer;
+}
+
+.overlay-1 {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  position: fixed;
+  opacity: 0.9;
+}
+
 .container {
- justify-content: center;
+  justify-content: center;
 }
 
 .form-control {
   column-width: 50px;
 }
 
-.tile {
+.tile{
   height:200px;
   width:200px;
   float:left;
@@ -35,54 +60,98 @@ body {
   color: #ECF0F1;
 }
 
-section {
-    display: inline-block;
-    float: left;
-}  
-
 .tags {
-    display: table;
+display: table;
 }
 
 .col {
   display: table-row;
 }
+
 .col label {
   display: table-cell;
 }
 
-input {
-  padding: 10px 15px;
-  border: none;
-  outline: none;
-  width: 300px;
-  border-radius: 16px 0px 16px 0px
-}
-    
 * {
   box-sizing: border-box;
 }
 
 /* Float four columns side by side */
 .column {
-  float: left;
-  width: 12.5%;
-  padding: 10px 10px;
-
+float: left;
+width: 12.5%;
+padding: 10px 10px;
 }
+
 /* Remove extra left and right margins, due to padding */
 .row {
-  margin: 0 -5px;
-  float: left;
+margin: 0 -5px;
+float: left;
 }
-
 
 /* Clear floats after the columns */
 .row:after {
-  content: "";
-  display: table;
-  clear: both;
+content: "";
+display: table;
+clear: both;
 }
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px 16px 16px 16px;
+  margin-block-start: 20px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 325px;
+  max-height: 250px;
+  min-height: 250px;
+  min-width: 325px;
+  height: 100%;
+  word-wrap: break-word;
+  float: left;
+  background-color: lightcoral;
+  object-fit: cover;
+}
+
+.card-over-1 {
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+padding: 16px 16px 16px 16px;
+margin-block-start: 20px;
+text-align: center;
+margin-left: auto;
+margin-right: auto;
+max-width: 650px;
+height: 100%;
+float: auto;
+background-color: lightcoral;
+object-fit: cover;
+}
+
+.header {
+  text-align: center;
+  color: antiquewhite;
+  font-family: Courier;
+  font-size: 2vw;
+  text-shadow: 2px 2px black;
+}
+
+h3 {
+  font-size: 1vw;
+  text-align: center;
+  color: white;
+}
+  
+a {
+  color: white;
+  text-shadow: 1px 1px black;
+}
+
+.recipe {
+  max-height: 5000px;
+  min-height: 500px;
+}
+
 /* Responsive columns */
 @media screen and (max-width: 600px) {
   .column {
@@ -92,66 +161,19 @@ input {
     height: auto;
   }
 
-}
-/* Style the counter cards */
-.card-custom {
-  /* display: flex;
-  justify-content: space-between; */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px 16px 16px 16px;
-  margin-block-start: 20px;
-  text-align: center;
-  /* text-overflow: clip; */
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 325px;
-  /* max-height: 300px;
-  min-height: 300px; */
-  height: 100%;
-  /* max-height: 200px; */
-  word-wrap: break-word;
-  /* font-size: 15.5vw; */
-  float: left;
-  background-color: lightcoral;
-  /* overflow: hidden; */
-  object-fit: cover;
-}
+  .hungry {
+    width: 200px;
+  }
 
-button {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px 16px 16px 16px;
-  margin-block-start: 20px;
-  text-align: center;
-  font
-  /* text-overflow: clip; */
-  margin-left: auto;
-  margin-right: auto;
-  min-width: 325px;
-  color: white;
-  /* max-height: 300px; */
-  /* min-height: 200px; */
-  height: 100%;
-  /* max-height: 200px; */
-  word-wrap: break-word;
-  /* font-size: 15.5vw; */
-  float: left;
-  background-color: lightcoral;
-  /* overflow: hidden; */
-  object-fit: cover;
-}    
+  .card {
+    min-width: fit-content;
+  }
 
-li {
-  color: white;
-}
+  p {
+    font-size: 5vw;
+  }
 
-
-p {
-  font-size: 1vw;
-  text-align: center;
-}
-
-h3 {
-  font-size: 1vw;
-  text-align: center;
-  color: white;
+  h3 {
+    font-size: 4vw;
+  }
 }
