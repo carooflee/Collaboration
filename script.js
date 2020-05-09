@@ -6,7 +6,11 @@ $(document).ready(function () {
 
     //If local storage = something show "Back Again" message:  We're happy to have you back again!  How did you enjoy your (last local storage entry)?  Did you end up cooking something up or venturing out to a restaurant?
     if (entryValue === "true") {
+
         // "Back Again" pop up
+
+
+
         let overlayDiv = $("<div>");
         overlayDiv.addClass("col s12 m6 overlay-1");
         $("body").append(overlayDiv);
@@ -25,6 +29,7 @@ $(document).ready(function () {
         $(".card-over-1").append(cardAction);
 
         let popA1 = $("<a>");
+
         popA1.addClass("col s12");
         popA1.text("I Cooked!");
         popA1.attr("id", "popup-1");
@@ -33,11 +38,14 @@ $(document).ready(function () {
         let popA2 = $("<a>");
         popA2.addClass("col s12");
         popA2.text("I Grabbed Something!");
+
         popA2.attr("id", "popup-2");
         $(".card-action").append(popA2);
 
     } else {
+
         // "First Time" pop up
+
         let overlayDiv = $("<div>");
         overlayDiv.addClass("col s12 m6 overlay-1");
         $("body").append(overlayDiv);
@@ -62,7 +70,9 @@ $(document).ready(function () {
 
     }
 
+
     // Adds 0 value to localStorage
+
     $("#popup-start").on("click", function () {
         $(".overlay-1").hide();
         localStorage.setItem("restaurant", 0)
@@ -81,6 +91,7 @@ $(document).ready(function () {
         let addedRec = addRecipe + 1;
         localStorage.setItem("recipe", addedRec);
     });
+
 
     // Input Group
     let headerDiv = $("<div>");
@@ -160,7 +171,11 @@ $(document).ready(function () {
 
                 // for loop cycles through Card creation below
                 for (let i = 0; i < 4; i++) {
+                  
                     // Restaurant Cards
+
+         
+
                     let colm = $("<div>");
                     colm.addClass("card card-custom resrow-" + [i]);
                     $("#restRow").append(colm);
@@ -183,7 +198,9 @@ $(document).ready(function () {
                 };
 
                 for (let i = 0; i < 4; i++) {
+
                     // Recipe Cards
+
                     let food = response2.results;
                     let colm2 = $("<div>");
                     colm2.addClass("card card-custom recrow-" + [i]);
@@ -193,11 +210,13 @@ $(document).ready(function () {
                     restDiv.text(response2.results[i].name)
                     $(".recrow-" + [i]).append(restDiv);
 
+
                     let addRecA = $("<a>");
                     addRecA.text("Click Here for Recipe!")
                     $(".recrow-" + [i]).append(addRecA);
                     // From A tag above on click empty body and show Recipe list from user's selection
                     addRecA.on("click", function () {
+
                         $("body").empty();
                         let foodDiv = $("<div>").addClass("card recipe");
                         let foodImage = $("<img>").attr("src", food[i].thumbnail_url).width("150px").height("150px");
@@ -209,6 +228,7 @@ $(document).ready(function () {
                             instructionsDiv.append(foodRecipe);
                         }
                         foodDiv.append(instructionsDiv);
+
                     $("body").append(foodDiv);
                     
                     let goBack = $("<a>");
@@ -222,8 +242,10 @@ $(document).ready(function () {
                         console.log(cuisineValue);
                         searchRestaurant(cuisineValue)
                     });
+
                 })};
             });
         });
     };
+
 });

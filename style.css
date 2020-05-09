@@ -30,6 +30,7 @@ a {
   cursor: pointer;
 }
 
+
 .overlay-1 {
   height: 100%;
   width: 100%;
@@ -39,6 +40,8 @@ a {
   position: fixed;
   opacity: 0.9;
 }
+ 
+
 
 .container {
   justify-content: center;
@@ -58,10 +61,6 @@ a {
   line-height: 45px;
   letter-spacing: 5px;
   color: #ECF0F1;
-}
-
-.tags {
-display: table;
 }
 
 .col {
@@ -128,6 +127,7 @@ background-color: lightcoral;
 object-fit: cover;
 }
 
+
 .header {
   text-align: center;
   color: antiquewhite;
@@ -176,4 +176,3 @@ a {
   h3 {
     font-size: 4vw;
   }
-}
