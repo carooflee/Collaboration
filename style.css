@@ -1,3 +1,36 @@
+body{
+  background: teal;
+  color: #fff;
+  padding:20px;
+  letter-spacing: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  /* float: left; */
+}
+
+section {
+  display: inline-block;
+  float: left;
+}
+
+input {
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+  max-width: 650px;
+  border-radius: 16px 0px 16px 0px;
+  color: white;
+}
+
+p {
+  font-size: 1vw;
+  text-align: center;
+}
+
+a {
+  cursor: pointer;
+}
+
+
 .overlay-1 {
   height: 100%;
   width: 100%;
@@ -5,130 +38,95 @@
   left: 0;
   z-index: 1;
   position: fixed;
-  height: 100%;
-  width: 100%;
   opacity: 0.9;
 }
  
- body{
-      background: teal;
-      color: #fff;
-      padding:20px;
-      letter-spacing: 5px;
-      font-family: Arial, Helvetica, sans-serif;
-      /* float: left; */
-    }
+
 
 .container {
- justify-content: center;
+  justify-content: center;
 }
 
-  .form-control {
-      column-width: 50px;
-  }
-    .tile{
-      height:200px;
-      width:200px;
-      float:left;
-      margin:5px 5px 5px 5px;
-      padding:2px;
-      font-size: 48px;
-      line-height: 45px;
-      letter-spacing: 5px;
-      color: #ECF0F1;
-    }
-    section {
-      display: inline-block;
-      float: left;
-  }  
- 
-  .col {
-    display: table-row;
-  }
- 
+.form-control {
+  column-width: 50px;
+}
 
-    input {
-      padding: 10px 15px;
-      border: none;
-      outline: none;
-      max-width: 650px;
-      border-radius: 16px 0px 16px 0px
-      }
-    
-    * {
-        box-sizing: border-box;
-      }
+.tile{
+  height:200px;
+  width:200px;
+  float:left;
+  margin:5px 5px 5px 5px;
+  padding:2px;
+  font-size: 48px;
+  line-height: 45px;
+  letter-spacing: 5px;
+  color: #ECF0F1;
+}
 
-      /* Float four columns side by side */
-      .column {
-        float: left;
-        width: 25%;
-        padding: 10px 10px;
+.col {
+  display: table-row;
+}
 
-      }
-      /* Remove extra left and right margins, due to padding */
-      .row {
-        margin: 0 -5px;
-        float: left;
-      }
+.col label {
+  display: table-cell;
+}
 
-      /* Responsive columns */
-      @media screen and (max-width: 600px) {
-        .column {
-          width: 100%;
-          display: block;
-          margin-bottom: 20px;
-          height: auto;
-        }
-        .card {
-          min-width: fit-content;
-        }
-        p {
-          font-size: 5vw;
-        }
-        h3 {
-          font-size: 4vw;
-        }
-      }
+* {
+  box-sizing: border-box;
+}
 
+/* Float four columns side by side */
+.column {
+float: left;
+width: 12.5%;
+padding: 10px 10px;
+}
 
-      .card {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        padding: 16px 16px 16px 16px;
-        margin-block-start: 20px;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 325px;
-        max-height: 250px;
-        min-height: 250px;
-        min-width: 325px;
-        height: 100%;
-        word-wrap: break-word;
-        float: left;
-        background-color: lightcoral;
-        object-fit: cover;
-      }
+/* Remove extra left and right margins, due to padding */
+.row {
+margin: 0 -5px;
+float: left;
+}
 
-      .card-over-1 {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        padding: 16px 16px 16px 16px;
-        margin-block-start: 20px;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 650px;
-        height: 100%;
-        float: auto;
-        background-color: lightcoral;
-        object-fit: cover;
-      }
+/* Clear floats after the columns */
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
 
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px 16px 16px 16px;
+  margin-block-start: 20px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 325px;
+  max-height: 250px;
+  min-height: 250px;
+  min-width: 325px;
+  height: 100%;
+  word-wrap: break-word;
+  float: left;
+  background-color: lightcoral;
+  object-fit: cover;
+}
 
-  p {
-    font-size: 1vw;
-    text-align: center;
-  }
+.card-over-1 {
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+padding: 16px 16px 16px 16px;
+margin-block-start: 20px;
+text-align: center;
+margin-left: auto;
+margin-right: auto;
+max-width: 650px;
+height: 100%;
+float: auto;
+background-color: lightcoral;
+object-fit: cover;
+}
+
 
 .header {
   text-align: center;
@@ -136,11 +134,9 @@
   font-family: Courier;
   font-size: 2vw;
   text-shadow: 2px 2px black;
-  
 }
 
-
-  h3 {
+h3 {
   font-size: 1vw;
   text-align: center;
   color: white;
@@ -155,3 +151,28 @@ a {
   max-height: 5000px;
   min-height: 500px;
 }
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+    height: auto;
+  }
+
+  .hungry {
+    width: 200px;
+  }
+
+  .card {
+    min-width: fit-content;
+  }
+
+  p {
+    font-size: 5vw;
+  }
+
+  h3 {
+    font-size: 4vw;
+  }
