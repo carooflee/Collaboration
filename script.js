@@ -231,17 +231,6 @@ $(document).ready(function () {
 
                     $("body").append(foodDiv);
                     
-                    let goBack = $("<a>");
-                    goBack.text("Go back to Results");
-                    goBack.attr("id", "goBackResults");
-                    $("body").append(goBack);
-                   
-                    $("#goBackResults").on("click", function () {
-                        $("body").empty();
-                        let cuisineValue = previousValue
-                        console.log(cuisineValue);
-                        searchRestaurant(cuisineValue)
-                    });
 
                 })};
             });
