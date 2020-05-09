@@ -41,17 +41,11 @@
       display: inline-block;
       float: left;
   }  
-  .tags {
-    display: table;
-  }
+ 
   .col {
     display: table-row;
   }
-  .col label {
-    display: table-cell;
-  }
-
-  
+ 
 
     input {
       padding: 10px 15px;
@@ -127,7 +121,6 @@
         height: 100%;
         float: auto;
         background-color: lightcoral;
-       
         object-fit: cover;
       }
 
