@@ -17,3 +17,5 @@ User Story
 As a Market Analyst
 I want an application that could show me consumer trends and their choice between cooking at home or choosing to eat at a restaurant
 So that I can assist customers in both of those industries with the given data to draw in more customers
+
+https://carooflee.github.io/Six-Feet-or-Further/
